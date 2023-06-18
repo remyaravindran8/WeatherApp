@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weathermicroservice
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: weathermicroservice
+  template:
+    metadata:
+      labels:
+        app: weathermicroservice
+    spec:
+      containers:
+        - name: weathermicroservice
+          image: weathermicroservice:latest
+          ports:
+            - containerPort: 3000
